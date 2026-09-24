@@ -197,6 +197,11 @@ const server = createServer((request, response) => {
     return;
   }
 
+  if (request.method === 'GET' && url.pathname === '/health') {
+    json(response, 200, { ok: true });
+    return;
+  }
+
   if (request.method !== 'GET' || url.pathname !== '/history') {
     error(response, 404, 'NOT_FOUND', 'Only GET /history is available');
     return;

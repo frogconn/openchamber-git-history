@@ -24,7 +24,8 @@ service is native Node.js and is not bundled; the build bundles the panel entry
 
 The service binds only to `127.0.0.1` and reads `OPENCHAMBER_SERVICE_PORT` and
 `OPENCHAMBER_SERVICE_TOKEN` from its host-provided environment. Every route
-requires `Authorization: Bearer <token>`. The fixed endpoint is:
+requires `Authorization: Bearer <token>`. The authenticated readiness endpoint
+is `GET /health`, which returns `{ "ok": true }`. The history endpoint is:
 
 ```http
 GET /history?directory=<absolute-project-directory>&limit=50

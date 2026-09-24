@@ -1,0 +1,58 @@
+:root {
+  color-scheme: dark;
+  --bg: #101216;
+  --panel: #14171d;
+  --panel-raised: #1a1e26;
+  --line: #2b303b;
+  --text: #f2f0eb;
+  --muted: #8c929e;
+  --faint: #626975;
+  --accent: #c9f27b;
+  --accent-dim: #7f9e4b;
+  --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; min-width: 260px; min-height: 100%; background: var(--bg); }
+body { color: var(--text); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+button { font: inherit; }
+.history-panel { min-height: 100vh; display: flex; flex-direction: column; background: radial-gradient(circle at 88% -10%, #2b3328 0, transparent 30%), var(--bg); }
+.panel-header { padding: 22px 18px 17px; border-bottom: 1px solid var(--line); }
+.eyebrow, .list-meta, .panel-footer { color: var(--muted); font: 10px/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.eyebrow { display: flex; align-items: center; gap: 7px; margin-bottom: 14px; }
+.live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px #c9f27b1c; }
+.title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+h1 { margin: 0; font: 600 25px/1.05 Georgia, "Times New Roman", serif; letter-spacing: -.035em; }
+.repository-name { max-width: 205px; margin: 7px 0 0; overflow: hidden; color: var(--muted); font: 11px/1.3 var(--mono); text-overflow: ellipsis; white-space: nowrap; }
+.icon-button { display: grid; place-items: center; flex: 0 0 32px; width: 32px; height: 32px; margin-top: 1px; border: 1px solid var(--line); border-radius: 8px; color: var(--text); background: #ffffff08; cursor: pointer; transition: border-color .18s, background .18s, transform .18s; }
+.icon-button:hover { border-color: var(--accent-dim); background: #c9f27b12; }
+.icon-button:active { transform: scale(.94); }
+.icon-button:disabled { opacity: .45; cursor: wait; }
+.icon-button svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; }
+.content { flex: 1; padding: 17px 18px; }
+.state { padding: 42px 12px; text-align: center; }
+.state-icon { display: grid; place-items: center; width: 38px; height: 38px; margin: 0 auto 15px; border: 1px solid var(--line); border-radius: 50%; color: var(--accent); font: 18px var(--mono); }
+.state h2 { margin: 0 0 7px; font: 600 17px Georgia, serif; }
+.state p { max-width: 245px; margin: 0 auto; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.text-button { margin-top: 17px; padding: 7px 12px; border: 1px solid var(--accent-dim); border-radius: 6px; color: var(--accent); background: transparent; font-size: 11px; cursor: pointer; }
+.text-button:hover { background: #c9f27b12; }
+.state-loading { display: grid; gap: 9px; justify-items: stretch; color: var(--muted); font: 11px var(--mono); }
+.loading-line { height: 43px; border: 1px solid var(--line); border-radius: 7px; background: linear-gradient(90deg, #ffffff04, #ffffff0b, #ffffff04); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
+.loading-line.short { width: 82%; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+.list-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 13px; font-size: 9px; }
+.list-rule { height: 1px; flex: 1; background: var(--line); }
+.commit-list { padding: 0; margin: 0; list-style: none; }
+.commit { position: relative; padding: 0 0 17px 17px; }
+.commit::before { position: absolute; top: 3px; left: 0; width: 7px; height: 7px; border: 2px solid var(--accent); border-radius: 50%; background: var(--bg); content: ""; z-index: 1; }
+.commit:not(:last-child)::after { position: absolute; top: 12px; bottom: 0; left: 4px; width: 1px; background: var(--line); content: ""; }
+.commit-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.commit-subject { display: -webkit-box; overflow: hidden; color: var(--text); font-size: 12px; font-weight: 550; line-height: 1.35; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.commit-date { flex: 0 0 auto; color: var(--faint); font: 9px var(--mono); white-space: nowrap; }
+.commit-bottom { display: flex; gap: 8px; margin-top: 6px; color: var(--muted); font: 10px var(--mono); }
+.commit-hash { color: var(--accent-dim); }
+.commit-author { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.panel-footer { display: flex; justify-content: space-between; gap: 12px; padding: 12px 18px 14px; border-top: 1px solid var(--line); font-size: 9px; }
+#directory-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.footer-mark { color: var(--faint); }
+@media (min-width: 500px) { .panel-header, .content { padding-left: 24px; padding-right: 24px; } .panel-footer { padding-left: 24px; padding-right: 24px; } }

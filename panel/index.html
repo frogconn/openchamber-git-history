@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Git History</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="history-panel" aria-labelledby="page-title">
+      <header class="panel-header">
+        <div class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Project timeline</div>
+        <div class="title-row">
+          <div>
+            <h1 id="page-title">Git history</h1>
+            <p id="repository-name" class="repository-name">Waiting for a project…</p>
+          </div>
+          <button id="refresh-button" class="icon-button" type="button" aria-label="Refresh git history" title="Refresh">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.2 6.2A6.6 6.6 0 1 0 17 11h-1.7M16.2 2.8v3.4h-3.4" /></svg>
+          </button>
+        </div>
+      </header>
+
+      <section id="content" class="content" aria-live="polite" aria-busy="false">
+        <div id="loading-state" class="state state-loading" hidden>
+          <div class="loading-line"></div><div class="loading-line short"></div><div class="loading-line"></div>
+          <span>Reading recent commits…</span>
+        </div>
+        <div id="message-state" class="state" hidden>
+          <div id="message-icon" class="state-icon" aria-hidden="true">—</div>
+          <h2 id="message-title"></h2>
+          <p id="message-copy"></p>
+          <button id="message-action" class="text-button" type="button" hidden></button>
+        </div>
+        <div id="history-state" hidden>
+          <div class="list-meta"><span id="commit-count"></span><span class="list-rule"></span><span>Newest first</span></div>
+          <ol id="commit-list" class="commit-list"></ol>
+        </div>
+      </section>
+      <footer class="panel-footer"><span id="directory-label">No project selected</span><span class="footer-mark">GIT / 50</span></footer>
+    </main>
+    <script src="./main.js"></script>
+  </body>
+</html>

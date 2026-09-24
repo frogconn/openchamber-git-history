@@ -1,0 +1,33 @@
+{
+  "name": "git-history",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild panel/main.ts --bundle --format=iife --platform=browser --outfile=panel/main.js"
+  },
+  "dependencies": {
+    "@openchamber/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  },
+  "openchamber": {
+    "apiVersion": 1,
+    "contributes": {
+      "panel": {
+        "id": "git-history",
+        "name": "Git History",
+        "icon": "git-commit",
+        "entry": "panel/index.html"
+      },
+      "service": {
+        "entry": "service/main.js",
+        "runtime": "host",
+        "permissions": {
+          "exec": ["git"]
+        }
+      }
+    }
+  }
+}
